@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -57,17 +59,31 @@ public class MainActivity extends Activity {
     public FragBottom() {
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
       View rootView = inflater
               .inflate(R.layout.container_bottom, container, false);
+      Button button1 = (Button)rootView.findViewById(R.id.buttonTest);
+      button1.setOnClickListener(this);
       return rootView;
     }
 
+//    public void testButtonClick() {
+//      Toast.makeText(getActivity(), "Button test2", Toast.LENGTH_SHORT);
+//    }
     @Override
     public void onClick(View v){
+      if (v.getId() == R.id.buttonTest){
+        Toast.makeText(getActivity(), "Button test33", Toast.LENGTH_SHORT).show();
+
+
+      }
+//      Toast.makeText(getActivity(), "Button test", Toast.LENGTH_SHORT);
     }
+
+
   }
 
   //left fragment
