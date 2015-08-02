@@ -6,12 +6,15 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,6 +51,8 @@ public class ImageActivity extends Activity {
     ft.commit();
   }
 
+
+
   //************************************* FRAGMENT
   //top fragment
   public static class FragTop extends Fragment implements View.OnClickListener {
@@ -72,6 +77,7 @@ public class ImageActivity extends Activity {
   public static class FragBottom extends Fragment implements View.OnClickListener {
     final int CAMERA_PIC_REQUEST = 1337;
     private String TAG = "ImageActivityFragBottom";
+    ImageView imageView;
 
     public FragBottom() {
     }
@@ -83,13 +89,19 @@ public class ImageActivity extends Activity {
               .inflate(R.layout.container_bottom, container, false);
       Button button2 = (Button) rootView.findViewById(R.id.buttonCamera);
       button2.setOnClickListener(this);
+      imageView = (ImageView) rootView.findViewById(R.id.imageView);
       return rootView;
     }
 
     @Override
     public void onClick(View v) {
+
+      //start camera activity
       if (v.getId() == R.id.buttonCamera) {
-//        Toast.makeText(getActivity(), "Button camera", Toast.LENGTH_SHORT).show();
+
+        imageView.setImageDrawable(null); //Clear image view
+
+        //call camera
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
       }
@@ -100,14 +112,20 @@ public class ImageActivity extends Activity {
 
       if (resultCode == RESULT_OK) {
         if (requestCode == 1337) {
-          //Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-//          mThumbnail = (Bitmap) data.getExtras().get("data");
-//          mImageView.setImageBitmap(mThumbnail);
+          Bitmap bitmapThumbnail = (Bitmap) data.getExtras().get("data");
+          imageView.setImageBitmap(bitmapThumbnail);
+          collectData();
 
         } else {
           Log.d(TAG, "No image you big dummy");
         }
       }
+    }
+
+    public void collectData() {
+
+      Toast.makeText(getActivity(), "Data collected", Toast.LENGTH_SHORT).show();
+
     }
   }
   
@@ -149,4 +167,8 @@ public class ImageActivity extends Activity {
     public void onClick(View v){
     }
   }
+
+
+
+
 }
