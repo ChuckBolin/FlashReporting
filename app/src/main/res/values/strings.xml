@@ -11,5 +11,7 @@
     <string name="menu_div">Division</string>
     <string name="title_activity_image">ImageActivity</string>
     <string name="buttonCamera">Camera</string>
+    <string name="buttonSelectReport">Select Report Type</string>
+    <string name="buttonCameraCaption">Camera</string>
 
 </resources>
