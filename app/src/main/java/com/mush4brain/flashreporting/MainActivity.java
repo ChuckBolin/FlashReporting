@@ -2,6 +2,7 @@ package com.mush4brain.flashreporting;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,12 +18,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
   private String TAG = "MainActivity";
   Button mButtonImage;
 
-//  FragmentTransaction ft = null;
-//  FragTop fragTop = new FragTop();
-//  FragBottom fragBottom = new FragBottom();
-//  FragLeft fragLeft = new FragLeft();
-//  FragRight fragRight = new FragRight();
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -32,27 +27,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     //set action bar title and subtitle
     ActionBar actionBar = getActionBar();
-    actionBar.setTitle("Flash Reporting v2015.08.01");
+    actionBar.setTitle("Flash Reporting v2015.08.01b");
     SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy   HH:mm:ss");
     String dateString = formatter.format(new Date());
     actionBar.setSubtitle( dateString);
 
     mButtonImage = (Button)findViewById(R.id.buttonImageActivity);
     mButtonImage.setOnClickListener(this);
-//    ft = getFragmentManager().beginTransaction();
-//    ft.add(R.id.container_top, fragTop);
-//    ft.add(R.id.container_left,  fragLeft);
-//    ft.add(R.id.container_right, fragRight);
-//    ft.add(R.id.container_bottom, fragBottom);
-//    ft.commit();
   }
 
   //buttonImageActivity
-//  @Override
+  @Override
   public void onClick(View v){
     if(v.getId() == R.id.buttonImageActivity){
-      Toast.makeText(this,"image",Toast.LENGTH_SHORT).show();
-
+      Intent intent = new Intent(this, ImageActivity.class);
+      startActivity(intent);
     }
   }
 
@@ -80,86 +69,4 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
   }
 
-//  //************************************* FRAGMENT
-//  //top fragment
-//  public static class FragTop extends Fragment implements View.OnClickListener {
-//    public FragTop() {
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//      View rootView = inflater
-//              .inflate(R.layout.container_top, container, false);
-//      return rootView;
-//    }
-//
-//    @Override
-//    public void onClick(View v){
-//    }
-//  }
-
-//  //************************************* FRAGMENT
-//  //bottom fragment
-//  public static class FragBottom extends Fragment implements View.OnClickListener {
-//    public FragBottom() {
-//    }
-//
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//      View rootView = inflater
-//              .inflate(R.layout.container_bottom, container, false);
-//      Button button1 = (Button)rootView.findViewById(R.id.buttonTest);
-//      button1.setOnClickListener(this);
-//      return rootView;
-//    }
-//
-//    @Override
-//    public void onClick(View v){
-//      if (v.getId() == R.id.buttonTest){
-//        Toast.makeText(getActivity(), "Button test33", Toast.LENGTH_SHORT).show();
-//      }
-//    }
-//  }
-//
-//  //************************************* FRAGMENT
-//  //left fragment
-//  public static class FragLeft extends Fragment implements View.OnClickListener{
-//
-//    public FragLeft() {
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//      View rootView = inflater
-//              .inflate(R.layout.container_left, container, false);
-//      return rootView;
-//    }
-//
-//    @Override
-//    public void onClick(View v){
-//    }
-//  }
-//
-//  //************************************* FRAGMENT
-//  //right fragment
-//  public static class FragRight extends Fragment implements View.OnClickListener {
-//    public FragRight() {
-//    }
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//      View rootView = inflater
-//              .inflate(R.layout.container_right, container, false);
-//      return rootView;
-//    }
-//
-//    @Override
-//    public void onClick(View v){
-//    }
-//  }
 }

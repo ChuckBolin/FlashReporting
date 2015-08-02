@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                tools:context=".MainActivity">
+                tools:context=".ImageActivity">
 
     <FrameLayout
         android:id="@+id/container_top"
@@ -10,7 +10,7 @@
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        >
+        android:background="@color/Chocolate">
     </FrameLayout>
     <FrameLayout
         android:id="@+id/container_left"
@@ -18,7 +18,7 @@
         android:layout_height="200dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/container_top"
-        >
+        android:background="@color/BlueViolet">
     </FrameLayout>
     <FrameLayout
         android:id="@+id/container_right"
@@ -28,14 +28,18 @@
         android:layout_alignRight="@id/container_left"
         android:layout_below="@id/container_top"
         android:layout_toEndOf="@id/container_left"
-        >
+        android:background="@color/AntiqueWhite">
     </FrameLayout>
     <FrameLayout
         android:id="@+id/container_bottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/container_left">
+        android:background="@color/MediumBlue"
+        android:layout_alignRight="@+id/container_right"
+        android:layout_alignEnd="@+id/container_right"
+        android:layout_below="@+id/container_left"
+        android:layout_alignParentBottom="true">
+
+
     </FrameLayout>
 </RelativeLayout>
