@@ -10,7 +10,7 @@
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@color/red" >
+         >
     </FrameLayout>
     <FrameLayout
         android:id="@+id/container_left"
@@ -18,7 +18,7 @@
         android:layout_height="200dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/container_top"
-        android:background="@color/green" >
+         >
     </FrameLayout>
     <FrameLayout
         android:id="@+id/container_right"
@@ -28,7 +28,7 @@
         android:layout_alignRight="@id/container_left"
         android:layout_below="@id/container_top"
         android:layout_toEndOf="@id/container_left"
-        android:background="@color/blue" >
+         >
     </FrameLayout>
     <FrameLayout
         android:id="@+id/container_bottom"
@@ -36,8 +36,7 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/container_left"
-        android:background="@color/yellow" >
+        android:layout_below="@+id/container_left">
     </FrameLayout>
 </RelativeLayout>
 
