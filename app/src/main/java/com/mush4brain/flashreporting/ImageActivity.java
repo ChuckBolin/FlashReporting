@@ -29,6 +29,7 @@ public class ImageActivity extends Activity {
   FragLeft fragLeft = new FragLeft();
   FragRight fragRight = new FragRight();
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
