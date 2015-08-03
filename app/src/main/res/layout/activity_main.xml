@@ -17,6 +17,9 @@
         android:layout_height="200dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/container_fragmain"
-        android:background="@color/BlueViolet">
+        android:background="@color/BlueViolet"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
     </FrameLayout>
     </RelativeLayout>

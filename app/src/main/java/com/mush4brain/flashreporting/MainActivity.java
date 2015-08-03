@@ -8,8 +8,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 //http://www.androidinterview.com/android-custom-listview-with-image-and-text-using-arrayadapter/
@@ -74,7 +77,7 @@ public class MainActivity extends Activity {//} implements View.OnClickListener 
 //  }
 
   //************************************* FRAGMENT
-  //left fragment
+  //main fragment
   public static class FragMain extends Fragment implements View.OnClickListener{
 
     public FragMain() {
@@ -94,17 +97,38 @@ public class MainActivity extends Activity {//} implements View.OnClickListener 
   }
 
   //************************************* FRAGMENT
-  //right fragment
-  public static class FragList extends Fragment implements View.OnClickListener {
+  //list fragment
+  public class FragList extends Fragment implements View.OnClickListener {
+    Integer [] imgid={R.drawable.ic_camera,R.drawable.ic_clear};
+    String[] itemname ={"Safari","Camera"};
+
+
     public FragList() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      View rootView = inflater
-              .inflate(R.layout.container_fraglist, container, false);
-      return rootView;
+
+   // CustomListAdapter adapter = new CustomListAdapter(getActivity(), itemname, imgid);
+
+
+      //TODO this works
+      View v = inflater.inflate(R.layout.container_fraglist, container, false);
+      ListView lstItems = (ListView)v.findViewById(R.id.listView);
+      ArrayList<String> prueba = new ArrayList<String>();
+      prueba.add("Element1");
+      prueba.add("Element2");
+      prueba.add("Element3");
+      ArrayAdapter<String> allItemsAdapter = new ArrayAdapter<String>(getActivity().getBaseContext(),
+              android.R.layout.simple_list_item_1,prueba);
+      lstItems.setAdapter(allItemsAdapter);
+      return v;
+
+      //TODO not working
+//      View rootView = inflater
+//              .inflate(R.layout.container_fraglist, container, false);
+//      return rootView;
     }
 
     @Override
